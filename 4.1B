@@ -1,0 +1,7 @@
+inputString = str(input("Enter a string: "))
+result = ""
+
+for i in range(0, len(inputString), 2):
+    result += inputString[i]
+
+print(result)
