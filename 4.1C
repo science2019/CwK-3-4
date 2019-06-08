@@ -1,0 +1,13 @@
+inputString = str(input("Enter a string: "))
+outputString = ""
+# saving time writing long statements
+vowels = ('a','e','i','o','u','A','E','I','O','U')
+
+for i in range(len(inputString)):
+    if inputString[i] in vowels:
+        outputString += "_"
+
+    else:
+        outputString += inputString[i]
+
+print(outputString)
