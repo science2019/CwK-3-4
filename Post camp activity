@@ -1,0 +1,233 @@
+import random
+from sys import exit
+
+
+
+print("Who goes first?")
+num = int(input("Enter 0 for rock, 1 for paper, and 2 for scissors: "))
+comp = random.randint(0, 2)
+
+while comp == num:
+
+    if comp == 0:
+        comp = "rock"
+    elif comp == 1:
+        comp = "paper"
+    else:
+        comp = "scissors"
+
+    print("Computer does", comp, "!")
+    print("It is a draw! Go again...")
+    num = int(input("Enter 0 for rock, 1 for paper, and 2 for scissors: "))
+    comp = random.randint(0, 2)
+
+else:
+    if comp == 0 and num == 1:
+        cond = 1
+    if comp == 2 and num == 1:
+        cond = 0
+    if comp == 1 and num == 0:
+        cond = 0
+    if comp == 2 and num == 0:
+        cond = 1
+    if comp == 0 and num == 2:
+        cond = 0
+    if comp == 1 and num == 2:
+        cond = 1
+
+
+
+
+    if comp == 0:
+        comp = "rock"
+    elif comp == 1:
+        comp = "paper"
+    else:
+        comp = "scissors"
+
+    print("Computer does", comp, "!")
+    if cond == 1:
+        print("You win!")
+        turn = 1
+    elif cond == 0:
+        print("You lose!")
+        turn = 0
+
+
+
+
+
+
+
+
+computer_tron = '''
+
+       _
+      [ ]
+     (   )
+      |>|
+   __/===\__
+  //| o=o |\\
+<]  | o=o |  [>
+    \=====/
+   / / | \ \
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+pile = random.randint(10, 100)
+
+print("Pile =", pile)
+
+
+
+if turn == 0:
+    print("computer goes first")
+elif turn == 1:
+    print("You go first")
+
+smart = random.randint(0,1)
+
+if smart == 0:
+    print("computer is stupid")
+    if turn == 1:
+        while pile > 2:
+            half = pile / 2
+            print("Your turn!")
+
+            take = int(input("Enter the number of marbles you wish to take (valid numbers are from 1 to %d): " %half))
+            if take >= 1 and take <= pile / 2:
+
+                pile = pile - take
+                half = int(pile / 2)
+                print("The pile is now", pile, "marbles.")
+                turn = 0
+                if pile > 2:
+
+                    print("Computer's turn!")
+
+                    ctake = random.randint(1, half)
+                    pile = pile - ctake
+                    print("The computer decides to take", ctake, "marbles.")
+                    print("The pile is now", pile, "marbles.")
+                    turn = 1
+
+
+            else:
+                exit("invalid input")
+
+        else:
+            if turn == 1 and pile == 2:
+                print("Your turn!")
+
+                take = int(input("Enter the number of marbles you wish to take: "))
+                pile = pile - take
+
+                print("The pile is now", pile, "marble.")
+                turn = 0
+            elif turn == 0 and pile == 2:
+                print("Computer's turn!")
+
+                print("The computer takes 1 marble, leaving only 1 marble in the pile!")
+                pile = 1
+
+
+                print("The pile is now", pile, "marbles.")
+                turn = 1
+
+
+
+            if turn == 0 and pile == 1:
+                print("The computer takes the last marble, and you are victorious!!")
+                print(computer_tron)
+                print("  <_________>")
+                print("Beep beep I am so ashamed :'(")
+            elif turn == 1 and pile == 1:
+                print("You must take the last marble, and suffer defeat...")
+                print(computer_tron)
+                print("  <_________>")
+                print("Beep beep I am victorious!!!")
+    elif turn == 0:
+        print("Computer's turn!")
+        half = int(pile / 2)
+        ctake = random.randint(1, half)
+        pile = pile - ctake
+        print("The computer decides to take", ctake, "marbles.")
+        print("The pile is now", pile, "marbles.")
+        turn = 1
+        while pile > 2:
+            half = pile / 2
+            print("Your turn!")
+
+            take = int(input("Enter the number of marbles you wish to take (valid numbers are from 1 to %d): " %half))
+            if take >= 1 and take <= pile / 2:
+
+                pile = pile - take
+                half = int(pile / 2)
+                print("The pile is now", pile, "marbles.")
+                turn = 0
+                if pile > 2:
+
+                    print("Computer's turn!")
+
+                    ctake = random.randint(1, half)
+                    pile = pile - ctake
+                    print("The computer decides to take", ctake, "marbles.")
+                    print("The pile is now", pile, "marbles.")
+                    turn = 1
+
+
+            else:
+                exit("invalid input")
+
+        else:
+            if turn == 1 and pile == 2:
+                print("Your turn!")
+
+                take = int(input("Enter the number of marbles you wish to take: "))
+                pile = pile - take
+
+                print("The pile is now", pile, "marbles.")
+                turn = 0
+
+            elif turn == 0 and pile == 2:
+                print("Computer's turn!")
+
+                print("The computer takes 1 marble, leaving only 1 marble in the pile!")
+                pile = 1
+
+
+                print("The pile is now", pile, "marbles.")
+                turn = 1
+
+
+
+            if turn == 0 and pile == 1:
+                print("The computer takes the last marble, and you are victorious!!")
+                print(computer_tron)
+                print("  <_________>")
+                print("Beep beep I am so ashamed :'(")
+            elif turn == 1 and pile == 1:
+                print("You must take the last marble, and suffer defeat...")
+                print(computer_tron)
+                print("  <_________>")
+                print("Beep beep I am victorious!!!")
+
+
+
+
+
+
+
+elif smart == 1:
+    print("Computer is smart")
